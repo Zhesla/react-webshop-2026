@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./SearchUI.css";
 
 const SearchUI = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -30,18 +31,26 @@ const SearchUI = () => {
 
   return (
     <div>
-      <h2>Search</h2>
+      <h2>Hitta produkter</h2>
       <input
         type="text"
-        placeholder="Search..."
+        id="search"
+        name="search"
+        placeholder="Sök..."
         value={searchTerm}
         onChange={handleSearch}
       />
-      <ul>
-        {products.map((item, index) => (
-          <li key={index}>{item.title}</li>
-        ))}
-      </ul>
+      <ul className="product-list">
+  {products.map((item, index) => (
+    <li key={index} className="product-card">
+      <img src={item.thumbnail} alt={item.title} />
+      <div className="product-card-body">
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
+      </div>
+    </li>
+  ))}
+</ul>
     </div>
   );
 };

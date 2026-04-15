@@ -4,7 +4,15 @@ const SearchUI = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [products, setProducts] = useState([]);
 
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    if (!value) setProducts([]); // töm listan direkt i onChange
+  };
+
   useEffect(() => {
+    if (!searchTerm) return;
+
     const timer = setTimeout(async () => {
       try {
         const res = await fetch(
@@ -27,12 +35,12 @@ const SearchUI = () => {
         type="text"
         placeholder="Search..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleSearch}
       />
       <ul>
         {products.map((item, index) => (
           <li key={index}>{item.title}</li>
-        ))}git commit -m "first commit"
+        ))}
       </ul>
     </div>
   );

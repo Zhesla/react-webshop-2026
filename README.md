@@ -1,5 +1,5 @@
 Jag har skapat en webshop som hämtar produkter från ett dummyAPI man kan söka och filtrera produkter. Jag har lagt mer energi på funktionerna där av är ux/ui inte något specielt.
-Man kan även lägga varorna i kudvagnen och göra en köp,
+Man kan även lägga varorna i kudvagnen och göra en köp.
 
 Installation
 
